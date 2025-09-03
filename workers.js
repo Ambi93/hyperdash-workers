@@ -28,7 +28,8 @@ export default {
           .map(m => ({
             id: m.id,
             name: m.name,
-            pricing: { prompt: m?.pricing?.prompt, completion: m?.pricing?.completion }
+            pricing: m.pricing,
+            display: `${m.name} — ${m.id}`
           }))
           .filter((m, i, a) => a.findIndex(x => x.id === m.id) === i)
           .sort((a, b) => a.name.localeCompare(b.name));
